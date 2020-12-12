@@ -1,0 +1,50 @@
+﻿[
+    {
+        "title": "鱼拿酸菜鱼（祖庙店）",
+        "point": "4.1",
+        "comment": "88",
+        "kind": "酸菜鱼/水煮鱼|祖庙",
+        "location": "禅城区祖庙路49号",
+        "price": "28",
+        "pic": "https://p0.meituan.net/merchant/f5f5b8aeb926c1f22bd1ffa99238bfe5257115.png@220w_125h_1e_1c",
+        "setmeal": [
+            {
+                "title": "招牌单人餐，提供免费WiFi",
+                "price": "18.9",
+                "orgprice": "28",
+                "salse": "950"
+            },
+            {
+                "title": "招牌双人餐，提供免费WiFi",
+                "price": "18.9",
+                "orgprice": "28",
+                "salse": "950"
+            }
+        ]
+    },
+    {
+        "title": "婆婆那辈的酸菜鱼（银洲城店）",
+        "point": "4.6",
+        "comment": "188",
+        "kind": "酸菜鱼/水煮鱼|祖庙",
+        "location": "禅城区禅城区锦华路81号东方广场银州城吉之岛三层自编301铺位",
+        "price": "33",
+        "pic": "https://p0.meituan.net/msmerchant/e74153afde7286122a5c57ba4ec8b38f5537021.jpg@220w_125h_1e_1c",
+        "setmeal": [
+            {
+                "id": 0,
+                "title": "开心老八套餐（自行解决）,建议1-2人使用",
+                "price": "12",
+                "orgprice": "23",
+                "salse": "33"
+            },
+            {
+                "id": 1,
+                "title": "招牌双人餐，提供免费WiFi",
+                "price": "56.8",
+                "orgprice": "120",
+                "salse": "19"
+            }
+        ]
+    }
+]
