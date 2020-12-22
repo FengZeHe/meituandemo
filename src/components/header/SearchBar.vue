@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-08 18:41:32
- * @LastEditTime: 2020-12-11 16:15:39
+ * @LastEditTime: 2020-12-16 12:32:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /meituandemo/src/components/header/SourceBar.vue
@@ -96,11 +96,13 @@ export default {
   top: 95px;
   left: 16%;
   font-size: 13px;
-  background-color: white;
+  background-color: #ccc;
+  opacity: 0.6;
 
   li {
-    margin: 7px 5px;
+    margin: 6px 5px;
     cursor: pointer;
+    z-index: 99999;
   }
 }
 

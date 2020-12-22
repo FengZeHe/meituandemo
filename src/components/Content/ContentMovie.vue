@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-09 21:03:57
- * @LastEditTime: 2020-12-10 11:02:43
+ * @LastEditTime: 2020-12-14 23:44:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /meituandemo/src/components/Content/ContentMovie.vue
@@ -83,11 +83,18 @@ export default {
   methods: {
     handleMove(type) {
       var moviecontent = document.querySelector(".movie-content");
+      console.log(moviecontent.style.left)
       // console.log(moviecontent.style.left, moviecontent.offsetLeft, type);
       if (type == "toleft") {
+        if (moviecontent.style.left == "0px" || moviecontent.style.left == '') {
+          return;
+        }
         moviecontent.style.left = moviecontent.offsetLeft + 215 + "px";
         console.log(moviecontent.style.left);
       } else {
+        if (moviecontent.style.left == "-430px") {
+          return;
+        }
         moviecontent.style.left = moviecontent.offsetLeft - 215 + "px";
         console.log(moviecontent.style.left);
       }
@@ -128,7 +135,6 @@ export default {
     color: white;
     margin: 0 20px;
   }
-
 
   .btn {
     width: 25px;

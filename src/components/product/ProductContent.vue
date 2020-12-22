@@ -1,11 +1,20 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-11 10:00:25
+ * @LastEditTime: 2020-12-16 13:01:45
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /meituandemo/src/components/product/ProductContent.vue
+-->
 <template>
   <div>
-    <product-card :data="productList"></product-card>
+    <product-card ></product-card>
   </div>
 </template>
 
 <script>
-const axios = require("axios");
+import api from "@/api/index.js";
+// const axios = require("axios");
 import ProductCard from "@/components/product/ProductCard";
 export default {
   data() {
@@ -18,14 +27,14 @@ export default {
   },
   methods: {
     getData() {
-      axios.get("/data/fishlist.json").then((res) => {
-        this.productList = res.data;
-        console.log(this.productList);
+      api.getGoodsList().then((res) => {
+        this.productList = res.data.data;
+        console.log(this.productList)
       });
     },
   },
   created() {
-    this.getData();
+    // this.getData();
   },
 };
 </script>

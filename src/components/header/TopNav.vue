@@ -12,8 +12,8 @@
             >切换城市
           </router-link>
           <span>[广州 顺德 佛山]</span>
-          <router-link tag="span" to="/">立即登录</router-link>
-          <router-link tag="span" to="/">注册</router-link>
+          <router-link tag="span" to="/login">立即登录</router-link>
+          <router-link tag="span" to="/registered">注册</router-link>
         </div>
       </div></el-col
     >

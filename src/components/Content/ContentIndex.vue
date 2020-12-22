@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-09 16:28:43
- * @LastEditTime: 2020-12-09 22:07:08
+ * @LastEditTime: 2020-12-15 14:28:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /meituandemo/src/components/Content/ContentIndex.vue
@@ -47,8 +47,12 @@
           <div>
             <img src="@/assets/pic/avatar.jpg" alt="" />
           </div>
-          <button>我要登录</button>
-          <button>注册</button>
+          <button>
+              <router-link tag="span" to="/login">我要登录 </router-link>
+            </button>
+          <button>
+            <router-link tag="span" to="/registered">注册</router-link>
+            </button>
         </div>
       </el-col>
     </el-row>

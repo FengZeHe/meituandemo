@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-11 17:43:03
- * @LastEditTime: 2020-12-11 18:48:01
+ * @LastEditTime: 2020-12-15 16:08:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /meituandemo/src/pages/Login.vue
@@ -23,22 +23,24 @@
             <i class="el-icon-mobile-phone e"></i>
           </span>
 
-          <el-input placeholder="请输入手机号" v-model="inputNum">
+          <el-input placeholder="请输入手机号" v-model="userName">
             <template slot="prepend">+86> </template>
           </el-input>
 
           <el-input
             placeholder="请输入密码"
             prefix-icon="el-icon-lock"
-            v-model="inputPassword"
+            v-model="password"
           >
           </el-input>
 
           <div class="forget">忘记密码？</div>
-          <el-button type="primary">登录</el-button>
+          <el-button type="primary" @click="handleClick">登录</el-button>
           <span class="toregister">
             还没有账号？
-            <a>免费注册</a>
+            <a>
+              <router-link tag="span" to="/register">免费注册</router-link>
+            </a>
           </span>
 
           <el-divider>用合作网站账号登录</el-divider>
@@ -52,12 +54,38 @@
 </template>
 
 <script>
+import api from "@/api/index.js";
 export default {
   data() {
     return {
-      inputNum: "",
-      inputPassword: "",
+      userName: "",
+      password: "",
     };
+  },
+  methods: {
+    handleClick() {
+      if (this.userName.length != "" || this.password.length != "") {
+        const { userName, password } = this;
+        const login = {
+          userName,
+          password,
+        };
+        // console.log(login);
+        api
+          .toLogin({
+            params: login,
+          })
+          .then((res) => {
+            let status = res.data.status;
+            console.log(status);
+            if (status == "success") {
+              this.$router.push("/");
+            } else {
+              this.$message.error(res.data.msg);
+            }
+          });
+      }
+    },
   },
 };
 </script>

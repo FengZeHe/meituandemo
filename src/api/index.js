@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-11 15:55:20
- * @LastEditTime: 2020-12-11 16:54:01
+ * @LastEditTime: 2020-12-16 12:46:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /meituandemo/src/api/index.js
@@ -27,8 +27,17 @@ var api = {
     getProvinceList() {
         return axios.get("/api/meituan/city/province.json")
     },
-    getRecentCity(){
+    getRecentCity() {
         return axios.get("/api/meituan/city/recents.json");
+    },
+    toRegistered(params) {
+        return axios.get('/api/meituan/register', params);
+    },
+    toLogin(params) {
+        return axios.get('/api/meituan/login', params);
+    },
+    getGoodsList() {
+        return axios.get("/api/meituan/list/goodsList.json")
     }
 
 

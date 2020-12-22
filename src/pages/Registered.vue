@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-11 17:44:23
- * @LastEditTime: 2020-12-11 19:47:02
+ * @LastEditTime: 2020-12-15 15:34:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /meituandemo/src/pages/Registered.vue
@@ -16,14 +16,16 @@
         <el-col :span="12"></el-col>
         <el-col :span="6" class="header-right">
           已有美团账号？
-          <el-button>登录</el-button>
+          <el-button>
+            <router-link tag="span" to="/login">登录</router-link>
+          </el-button>
         </el-col>
       </el-row>
     </el-header>
     <el-divider></el-divider>
     <el-main>
       手机号
-      <el-input v-model="phoneNum" placeholder=""></el-input>
+      <el-input v-model="userName" placeholder="" maxlength="14"></el-input>
       <span class="tip"> 注册成功后，全美团通用</span>
       <br />
       <button>免费获取短信动态码</button>
@@ -32,12 +34,14 @@
       短信动态码 <el-input v-model="code" placeholder=""></el-input>
       <br />
       创建密码
-      <el-input v-model="firstPassword" placeholder=""></el-input>
+      <el-input v-model="password" placeholder="" show-password></el-input>
       <br />
       确认密码
-      <el-input v-model="secondPassword" placeholder=""></el-input>
+      <el-input v-model="rePassword" placeholder="" show-password></el-input>
       <br />
-      <el-button type="primary">同意以下协议并注册</el-button>
+      <el-button type="primary" @click="handleClick"
+        >同意以下协议并注册</el-button
+      >
       <br />
       <a href="">《美团用户服务协议》</a> <a href="">《美团隐私政策》</a>
     </el-main>
@@ -47,14 +51,56 @@
 
 
 <script>
+import api from "@/api/index.js";
+
 export default {
   data() {
     return {
-      phoneNum: "",
+      userName: "",
       code: "",
-      firstPassword: "",
-      secondPassword: "",
+      password: "",
+      rePassword: "",
     };
+  },
+  methods: {
+    handleClick() {
+      let { userName, password, rePassword } = this;
+      // console.log(userName, password, rePassword);
+      if (userName.length < 4 || userName.length > 14) {
+        this.$message.error("用户名长度为4-14位数字");
+        return;
+      }
+      if (password.length == "" || rePassword.length == "") {
+        this.$message.error("密码不能为空");
+        return;
+      }
+      if (password != rePassword) {
+        this.$message.error("两次输入密码不一致");
+        return;
+      }
+
+      var register = {
+        userName,
+        password,
+        rePassword,
+      };
+      api
+        .toRegistered({
+          params: register,
+        })
+        .then((res) => {
+          if (res.data.status == "fail") {
+            let msg = res.data.msg;
+            this.$message.error(`${msg}`);
+          } else {
+            let msg = res.data.msg;
+            this.$message.success(`${msg}`);
+            this.$router.push('/')
+          }
+          // console.log(res.data.msg);
+        });
+      // console.log(register);
+    },
   },
 };
 </script>

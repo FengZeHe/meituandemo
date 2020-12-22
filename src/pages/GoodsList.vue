@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-08 22:38:22
- * @LastEditTime: 2020-12-11 10:03:00
+ * @LastEditTime: 2020-12-16 13:18:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /meituandemo/src/components/header/goodsList.vue
@@ -21,7 +21,7 @@
           <product-content></product-content>
         </div>
       </el-col>
-      <el-col :span="4">4skdhfk</el-col>
+      <el-col :span="4"></el-col>
     </el-row>
   </div>
 </template>
